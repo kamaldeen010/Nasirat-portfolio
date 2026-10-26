@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Palette + fonts: change these to re-theme the whole site */
+@theme {
+  --color-paper: #f8f7fc;
+  --color-ink: #1b1b2f;
+  --color-deep: #17133a;
+  --color-violet: #6d4aff;
+  --color-tape: #8fe3c5;
+  --color-tape2: #ffb8cc;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+}
+
+html { scroll-behavior: smooth; }
+body { @apply bg-paper font-sans text-ink antialiased; overflow-x: hidden; }
+:focus-visible { outline: 2px solid var(--color-violet); outline-offset: 3px; }
+
+/* masking-tape strip */
+.tape {
+  position: absolute; display: block; pointer-events: none;
+  background: var(--color-tape); opacity: 0.92;
+  clip-path: polygon(0 0, 100% 0, 97% 25%, 100% 50%, 97% 75%, 100% 100%, 0 100%, 3% 75%, 0 50%, 3% 25%);
+}
+.dots { background-image: radial-gradient(rgba(255,255,255,.1) 1px, transparent 1px); background-size: 24px 24px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
